@@ -18,6 +18,13 @@ This is a Next.js 16 project using the App Router with TypeScript and Tailwind C
 - Tailwind CSS v4 (PostCSS-based configuration)
 - Path alias: `@/*` maps to project root
 
+## Custom Skills
+
+- `/summarize <file-path>` - ファイルを読み込み「タイトル・トピック3つ・結論」形式で要約
+- `/char-counter` - テキストの文字数カウント（改行・スペース有無の4パターン）
+- `/heading-analyzer` - 競合記事の見出し分析とSEO最適化見出し構成の提案
+- `/skill-creator` - 新しいスキルの作成ガイド
+
 ---
 
 ## ぷよぷよゲーム 要件定義書
