@@ -6,6 +6,8 @@ import type { Project } from "../data";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [isOpen, setIsOpen] = useState(false);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const imageSrc = `${basePath}${project.image}`;
 
   return (
     <>
@@ -15,7 +17,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       >
         <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
           <Image
-            src={project.image}
+            src={imageSrc}
             alt={project.title}
             fill
             className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
@@ -62,7 +64,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
             <div className="relative w-full">
               <Image
-                src={project.image}
+                src={imageSrc}
                 alt={project.title}
                 width={1200}
                 height={750}
