@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +13,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-noto-serif-jp",
+});
+
 export const metadata: Metadata = {
-  title: "ぷよぷよ - タイムアタック",
-  description: "2分間でハイスコアを目指すぷよぷよゲーム",
+  title: "Portfolio | AI Developer & Creator",
+  description:
+    "AIを活用したWebアプリ開発、データ分析、コンテンツ制作のポートフォリオ",
 };
 
 export default function RootLayout({
@@ -23,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${notoSerifJP.variable} antialiased`}
       >
         {children}
       </body>
