@@ -20,6 +20,7 @@ This is a Next.js 16 project using the App Router with TypeScript and Tailwind C
 
 ## Custom Skills
 
+- `/code-review [file-path]` - コードレビュー実施（品質・セキュリティ・パフォーマンス・アクセシビリティ・SEO・Next.js固有の6カテゴリ）
 - `/summarize <file-path>` - ファイルを読み込み「タイトル・トピック3つ・結論」形式で要約
 - `/char-counter` - テキストの文字数カウント（改行・スペース有無の4パターン）
 - `/heading-analyzer` - 競合記事の見出し分析とSEO最適化見出し構成の提案
