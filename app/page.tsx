@@ -17,7 +17,7 @@ export default function PortfolioPage() {
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
-  const navItems = ["About", "Works", "Skills", "Contact"];
+  const navItems = ["Career", "About", "Works", "Skills", "Contact"];
 
   return (
     <div className="min-h-screen bg-white text-[#333333] font-[var(--font-noto-serif-jp)]">
@@ -114,8 +114,84 @@ export default function PortfolioPage() {
           </div>
         </section>
 
+        {/* Career */}
+        <section id="career" className="py-20 px-6 md:px-10">
+          <div className="max-w-[800px] mx-auto">
+            <SectionDivider />
+            <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-4">
+              Career
+            </h2>
+            <p className="text-[#666666] text-center text-sm mb-16">
+              保育の現場からAI開発の世界へ
+            </p>
+
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-[7px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px] bg-[#f0d4dd]" />
+
+              {/* Entry 1: 2020-2023 */}
+              <div className="relative flex flex-col md:flex-row md:items-center mb-16">
+                {/* Left side (desktop) */}
+                <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
+                    2020 - 2023
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">
+                    保育リーダー
+                  </h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    認可保育園にて保育リーダーとして勤務。
+                    <br />
+                    子どもたちの成長を支えながら、チームマネジメントや保護者対応を経験。
+                  </p>
+                </div>
+                {/* Dot */}
+                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
+                {/* Right side (desktop) / Full (mobile) */}
+                <div className="pl-8 md:hidden">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
+                    2020 - 2023
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">
+                    保育リーダー
+                  </h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    認可保育園にて保育リーダーとして勤務。
+                    <br />
+                    子どもたちの成長を支えながら、チームマネジメントや保護者対応を経験。
+                  </p>
+                </div>
+                <div className="hidden md:block md:w-1/2 md:pl-12" />
+              </div>
+
+              {/* Entry 2: 2023-Present */}
+              <div className="relative flex flex-col md:flex-row md:items-center">
+                <div className="hidden md:block md:w-1/2 md:pr-12" />
+                {/* Dot */}
+                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
+                {/* Right side (desktop) / Full (mobile) */}
+                <div className="pl-8 md:pl-12 md:w-1/2">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#e8a4b8] text-white text-xs font-semibold mb-3">
+                    2023 - 現在
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">
+                    個人事業主 / AI Developer
+                  </h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    個人事業主として独立し、AI開発・SNS運用・講師として活動中。
+                    <br />
+                    ChatGPT・Claude・Geminiなど複数のAIツールを駆使し、
+                    <br className="hidden md:block" />
+                    Webアプリ開発からコンテンツ制作まで幅広く手がける。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* About */}
-        <section id="about" className="py-20 px-6 md:px-10">
+        <section id="about" className="py-20 px-6 md:px-10 bg-[#faf9f5]">
           <div className="max-w-[1200px] mx-auto">
             <SectionDivider />
             <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-16">
