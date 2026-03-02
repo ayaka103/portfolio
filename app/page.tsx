@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { projects, categories, categoryCounts, CONTACT, type Category } from "./portfolio/data";
+import Image from "next/image";
+import { worksGroups, CONTACT } from "./portfolio/data";
 import ProjectCard from "./portfolio/components/ProjectCard";
 
 function SectionDivider() {
@@ -9,13 +10,7 @@ function SectionDivider() {
 }
 
 export default function PortfolioPage() {
-  const [activeCategory, setActiveCategory] = useState<Category>("all");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const filtered =
-    activeCategory === "all"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
 
   const navItems = ["Career", "About", "Works", "Skills", "Contact"];
 
@@ -85,31 +80,45 @@ export default function PortfolioPage() {
       <main id="main-content">
         {/* Hero */}
         <section className="pt-24 pb-20 px-6 md:px-10 bg-[#faf9f5]">
-          <div className="max-w-[1200px] mx-auto text-center">
-            <p className="text-[#e8a4b8] text-sm font-semibold tracking-[0.05em] uppercase mb-6">
-              AI Developer & Creator
-            </p>
-            <h1 className="text-[32px] md:text-[48px] font-normal leading-[1.8] tracking-[0.15em] text-[#333333] mb-6">
-              AIで、つくる。
-            </h1>
-            <p className="text-[#666666] text-base md:text-lg max-w-xl mx-auto leading-[1.8] mb-10">
-              AIを活用したWebアプリ開発、データ分析、コンテンツ制作まで。
-              <br className="hidden md:block" />
-              テクノロジーとクリエイティブの力で、アイデアを形にします。
-            </p>
-            <div className="flex justify-center gap-4">
-              <a
-                href="#works"
-                className="px-6 py-2.5 rounded-full bg-[#e8a4b8] border border-[#e8a4b8] text-white font-medium text-sm hover:bg-[#d48fa3] hover:shadow-[0_10px_30px_rgba(232,164,184,0.4)] transition-all duration-300"
-              >
-                Works を見る
-              </a>
-              <a
-                href="#contact"
-                className="px-6 py-2.5 rounded-full border border-[#eeeeee] text-[#666666] font-medium text-sm hover:border-[#e8a4b8] hover:text-[#e8a4b8] transition-colors"
-              >
-                Contact
-              </a>
+          <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-[#e8a4b8] text-sm font-semibold tracking-[0.05em] uppercase mb-6">
+                AI Developer & Creator
+              </p>
+              <h1 className="text-[32px] md:text-[48px] font-normal leading-[1.8] tracking-[0.15em] text-[#333333] mb-6">
+                AIで、つくる。
+              </h1>
+              <p className="text-[#666666] text-base md:text-lg max-w-xl leading-[1.8] mb-10">
+                AIを活用したWebアプリ開発、データ分析、コンテンツ制作まで。
+                <br className="hidden md:block" />
+                テクノロジーとクリエイティブの力で、アイデアを形にします。
+              </p>
+              <div className="flex justify-center md:justify-start gap-4">
+                <a
+                  href="#works"
+                  className="px-6 py-2.5 rounded-full bg-[#e8a4b8] border border-[#e8a4b8] text-white font-medium text-sm hover:bg-[#d48fa3] hover:shadow-[0_10px_30px_rgba(232,164,184,0.4)] transition-all duration-300"
+                >
+                  Works を見る
+                </a>
+                <a
+                  href="#contact"
+                  className="px-6 py-2.5 rounded-full border border-[#eeeeee] text-[#666666] font-medium text-sm hover:border-[#e8a4b8] hover:text-[#e8a4b8] transition-colors"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+            <div className="shrink-0">
+              <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-[#fff0f3] shadow-[0_10px_40px_rgba(232,164,184,0.2)]">
+                <Image
+                  src="/profile.jpg"
+                  alt="プロフィール写真"
+                  width={288}
+                  height={288}
+                  className="w-full h-full object-cover object-top"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -122,7 +131,7 @@ export default function PortfolioPage() {
               Career
             </h2>
             <p className="text-[#666666] text-center text-sm mb-16">
-              保育の現場からAI開発の世界へ
+              保育士からSNS運用、そしてAI活用へ
             </p>
 
             <div className="relative">
@@ -164,27 +173,54 @@ export default function PortfolioPage() {
                 <div className="hidden md:block md:w-1/2 md:pl-12" />
               </div>
 
-              {/* Entry 2: 2023-Present */}
-              <div className="relative flex flex-col md:flex-row md:items-center">
+              {/* Entry 2: 2023 */}
+              <div className="relative flex flex-col md:flex-row md:items-center mb-16">
                 <div className="hidden md:block md:w-1/2 md:pr-12" />
                 {/* Dot */}
                 <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
                 {/* Right side (desktop) / Full (mobile) */}
                 <div className="pl-8 md:pl-12 md:w-1/2">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#e8a4b8] text-white text-xs font-semibold mb-3">
-                    2023 - 現在
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
+                    2023
                   </span>
                   <h3 className="text-[#333333] font-bold text-lg mb-2">
-                    個人事業主 / AI Developer
+                    個人事業主 /<br />SNS運用・クリエイティブ制作
                   </h3>
                   <p className="text-[#666666] text-sm leading-[1.8]">
-                    個人事業主として独立し、AI開発・SNS運用・講師として活動中。
-                    <br />
-                    ChatGPT・Claude・Geminiなど複数のAIツールを駆使し、
-                    <br className="hidden md:block" />
-                    Webアプリ開発からコンテンツ制作まで幅広く手がける。
+                    個人事業主として独立し、SNS運用やスクール運営講師など多岐に渡り経験を積む。
                   </p>
                 </div>
+              </div>
+
+              {/* Entry 3: Present */}
+              <div className="relative flex flex-col md:flex-row md:items-center">
+                {/* Left side (desktop) */}
+                <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#e8a4b8] text-white text-xs font-semibold mb-3">
+                    現在
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">
+                    個人事業主 / AI活用
+                  </h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    AI開発について学び、スキルを習得。企業様に対して業務効率化やクリエイティブ提案などを行う。
+                  </p>
+                </div>
+                {/* Dot */}
+                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
+                {/* Mobile only */}
+                <div className="pl-8 md:hidden">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#e8a4b8] text-white text-xs font-semibold mb-3">
+                    現在
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">
+                    個人事業主 / AI活用
+                  </h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    AI開発について学び、スキルを習得。企業様に対して業務効率化やクリエイティブ提案などを行う。
+                  </p>
+                </div>
+                <div className="hidden md:block md:w-1/2 md:pl-12" />
               </div>
             </div>
           </div>
@@ -211,40 +247,21 @@ export default function PortfolioPage() {
               </div>
               <div>
                 <h3 className="text-[#333333] font-bold text-lg mb-4">使用AIツール</h3>
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-3">
                   {[
-                    "ChatGPT",
                     "Claude",
+                    "Claude Code",
                     "Gemini",
                     "Manus",
                     "NotebookLM",
-                    "v0",
+                    "Antigravity",
                     "Cursor",
                   ].map((tool) => (
                     <span
                       key={tool}
-                      className="px-4 py-1.5 text-xs font-semibold rounded-full bg-[#fff0f3] text-[#e8a4b8]"
+                      className="px-5 py-2 text-sm font-semibold rounded-full bg-[#fff0f3] text-[#e8a4b8]"
                     >
                       {tool}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="text-[#333333] font-bold text-lg mb-4">技術スタック</h3>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Next.js",
-                    "React",
-                    "TypeScript",
-                    "Tailwind CSS",
-                    "Python",
-                    "Notion API",
-                    "Vercel",
-                  ].map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-4 py-1.5 text-xs font-semibold rounded-full bg-[#f5f5f5] text-[#666666] border border-[#eeeeee]"
-                    >
-                      {tech}
                     </span>
                   ))}
                 </div>
@@ -264,32 +281,22 @@ export default function PortfolioPage() {
               AIを活用して制作したプロジェクト一覧
             </p>
 
-            {/* Filter */}
-            <div className="flex flex-wrap justify-center gap-2 mb-12">
-              {categories.map((cat) => (
-                <button
-                  key={cat.key}
-                  onClick={() => setActiveCategory(cat.key)}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    activeCategory === cat.key
-                      ? "bg-[#e8a4b8] text-white border border-[#e8a4b8] shadow-[0_10px_30px_rgba(232,164,184,0.4)]"
-                      : "bg-transparent text-[#666666] border border-[#eeeeee] hover:border-[#e8a4b8] hover:text-[#e8a4b8]"
-                  }`}
-                >
-                  {cat.label}
-                  <span className="ml-1.5 text-xs opacity-60">
-                    {categoryCounts[cat.key]}
-                  </span>
-                </button>
-              ))}
-            </div>
+            {worksGroups.map((group, i) => (
+              <div key={i} className={i > 0 ? "mt-16" : ""}>
+                <h3 className="text-lg md:text-xl font-bold text-center text-[#333333] mb-8 leading-[1.8]">
+                  {group.subtitle}
+                </h3>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {group.projects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </div>
+            ))}
 
-            {/* Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-              ))}
-            </div>
+            <p className="text-[#999999] text-xs text-center mt-12 leading-[1.8]">
+              ※ 各削減率はAI活用による業務効率化の一般的な目安を参考に記載しており、実際の効果はプロジェクトの内容や状況により異なります。
+            </p>
           </div>
         </section>
 
@@ -303,8 +310,8 @@ export default function PortfolioPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  title: "Web開発",
-                  items: ["Next.js / React", "TypeScript", "Tailwind CSS", "Vercel Deploy"],
+                  title: "AI業務効率化",
+                  items: ["業務フロー自動化設計", "AIチャットボット構築", "ドキュメント自動生成", "コスト削減シミュレーション"],
                 },
                 {
                   title: "AI活用",

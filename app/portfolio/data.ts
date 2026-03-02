@@ -69,7 +69,7 @@ export const projects: Project[] = [
     id: "ai-sns-analysis",
     title: "AI SNS Analysis",
     category: "webapp",
-    description: "AIでSNSデータを分析し、フォロワー獲得戦略やデータドリブンな投稿設計を支援するサービスLP。",
+    description: "SNS分析からフォロワー獲得戦略まで、データをもとに次の一手を提案するサービスのLPを制作。分析レポート作成時間を約60%短縮。",
     image: "/ai-sns-analysis.png",
     tags: ["SNS", "AI分析", "LP"],
   },
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     id: "text-generator",
     title: "AI テキスト生成ツール",
     category: "webapp",
-    description: "YouTube台本など、目的に合わせたテキストをAIで自動生成するダッシュボード型ツール。",
+    description: "広告コピー・SNS投稿・動画台本など、用途に合わせたテキストをAIで量産。制作コストを約60%削減。",
     image: "/text-generator.png",
     tags: ["AI生成", "YouTube", "Dashboard"],
   },
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     id: "chatgpt-guide",
     title: "ChatGPT 初心者ガイド",
     category: "webapp",
-    description: "ChatGPTの使い方を初心者向けに解説するランディングページ。パステルカラーの可愛いデザイン。",
+    description: "難しいテーマをやさしく伝えるLP設計が得意。ターゲットに刺さるビジュアルとコピーをAIで高速制作。LP1本の制作期間を約40%短縮。",
     image: "/chatgpt-guide.png",
     tags: ["LP", "ChatGPT", "教育"],
   },
@@ -127,7 +127,7 @@ export const projects: Project[] = [
     id: "gem-job-posting",
     title: "求人票生成Gem",
     category: "gem",
-    description: "Wantedly、Indeed、リクナビなど媒体ごとの「勝ちパターン」に沿った求人票を自動ライティング。採用業務を大幅に効率化。",
+    description: "媒体ごとの勝ちパターンを学習させたAIが求人票を自動生成。1件あたりの作成時間を約75%削減。",
     image: "/gem-job-posting.png",
     tags: ["採用", "ライティング", "Gemini"],
   },
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     id: "gem-insta-planning",
     title: "インスタ企画生成BOT",
     category: "gem",
-    description: "Instagram競合アカウントをリサーチし、自社の企画立案まで対話型で実行。ステップ式でマーケ戦略を構築。",
+    description: "競合リサーチから投稿企画まで、AIで一気通貫。企画立案にかかる時間を約70%削減できます。",
     image: "/gem-insta-planning.png",
     tags: ["Instagram", "企画", "マーケ"],
   },
@@ -159,7 +159,7 @@ export const projects: Project[] = [
     id: "gem-x-post",
     title: "Xポスト作成BOT",
     category: "gem",
-    description: "分析から導いたX（Twitter）のポスト（140文字）を簡単に作成できるBOT。SNS運用の効率化に。",
+    description: "クライアントのトンマナに合ったXポストをAIで即生成。投稿1本あたりの制作時間を約80%カット。",
     image: "/gem-x-post.png",
     tags: ["X / Twitter", "SNS", "ライティング"],
   },
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     id: "line-ad-chart",
     title: "LINE広告データ可視化",
     category: "data",
-    description: "LINE広告のカテゴリ別パフォーマンスをチャートで可視化。データドリブンな広告戦略分析。",
+    description: "広告データをビジュアル化し、クライアントへの報告・改善提案をスピードアップ。レポート作成時間を約50%短縮。",
     image: "/line-ad-chart.png",
     tags: ["LINE広告", "可視化", "マーケ"],
   },
@@ -259,7 +259,7 @@ export const projects: Project[] = [
     id: "freelance-story",
     title: "フリーランス女子の変身物語",
     category: "content",
-    description: "どん底からAIという魔法を掴むまでの23歳フリーランス女子のストーリーをファンタジー風に表現。",
+    description: "ターゲットの感情に寄り添うストーリーコンテンツをAIで制作。共感・拡散を狙ったSNS設計で、制作時間を約65%削減。",
     image: "/freelance-story.png",
     tags: ["ストーリー", "SNS", "NotebookLM"],
   },
@@ -275,7 +275,7 @@ export const projects: Project[] = [
     id: "gutaika-note",
     title: "「具体化力」note記事",
     category: "content",
-    description: "思考を具体化するスキルについてのnote記事。深掘りとビジュアライズの習慣を解説。",
+    description: "専門知識をわかりやすく言語化し、読者の行動を促すオウンドメディア記事を執筆。AIを活用し記事1本あたりの執筆時間を約50%短縮。",
     image: "/gutaika-note.png",
     tags: ["note", "記事", "思考法"],
   },
@@ -301,3 +301,32 @@ export const categoryCounts: Record<Category, number> = categories.reduce(
   },
   {} as Record<Category, number>
 );
+
+const findProject = (id: string) => projects.find((p) => p.id === id)!;
+
+export const worksGroups: { subtitle: string; projects: Project[] }[] = [
+  {
+    subtitle: "データとAIで、SNSの成果を最大化できます",
+    projects: [
+      findProject("gem-insta-planning"),
+      findProject("ai-sns-analysis"),
+      findProject("gem-x-post"),
+    ],
+  },
+  {
+    subtitle: "デザインから文章まで、コンテンツ制作を一気通貫で支援できます",
+    projects: [
+      findProject("freelance-story"),
+      findProject("gutaika-note"),
+      findProject("chatgpt-guide"),
+    ],
+  },
+  {
+    subtitle: "AIツール導入で、業務コストを大幅に削減できます",
+    projects: [
+      findProject("gem-job-posting"),
+      findProject("text-generator"),
+      findProject("line-ad-chart"),
+    ],
+  },
+];
