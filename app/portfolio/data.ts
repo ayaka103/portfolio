@@ -279,6 +279,14 @@ export const projects: Project[] = [
     image: "/gutaika-note.png",
     tags: ["note", "記事", "思考法"],
   },
+  {
+    id: "wedding-venue-app",
+    title: "ウェディング会場検索アプリ",
+    category: "content",
+    description: "架空のウェディング会場検索アプリのUI/UXデザイン。高級感のあるビジュアルとレビュー機能を備えたモバイルアプリのモックアップを制作。",
+    image: "/wedding-venue-app.jpg",
+    tags: ["UI/UX", "アプリデザイン", "モックアップ"],
+  },
 
   // === AI Automation ===
   {
@@ -317,7 +325,7 @@ export const worksGroups: { subtitle: string; projects: Project[] }[] = [
     subtitle: "デザインから文章まで、コンテンツ制作を一気通貫で支援できます",
     projects: [
       findProject("freelance-story"),
-      findProject("gutaika-note"),
+      findProject("wedding-venue-app"),
       findProject("chatgpt-guide"),
     ],
   },
