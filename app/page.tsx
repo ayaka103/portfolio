@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { worksGroups, CONTACT } from "./portfolio/data";
 import ProjectCard from "./portfolio/components/ProjectCard";
 
@@ -12,7 +13,7 @@ function SectionDivider() {
 export default function PortfolioPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = ["Career", "About", "Works", "Skills", "Contact"];
+  const navItems = ["About", "Works", "Skills", "Contact"];
 
   return (
     <div className="min-h-screen bg-white text-[#333333] font-[var(--font-noto-serif-jp)]">
@@ -32,6 +33,12 @@ export default function PortfolioPage() {
           </span>
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8 text-sm text-[#333333]">
+            <Link
+              href="/mypage"
+              className="hover:text-[#e8a4b8] transition-colors"
+            >
+              Mypage
+            </Link>
             {navItems.map((item) => (
               <a
                 key={item}
@@ -62,6 +69,13 @@ export default function PortfolioPage() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-[#f5f5f5] bg-white">
             <div className="max-w-[1200px] mx-auto px-6 py-4 flex flex-col gap-4">
+              <Link
+                href="/mypage"
+                className="text-sm text-[#333333] hover:text-[#e8a4b8] transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Mypage
+              </Link>
               {navItems.map((item) => (
                 <a
                   key={item}
@@ -93,12 +107,30 @@ export default function PortfolioPage() {
                 <br className="hidden md:block" />
                 テクノロジーとクリエイティブの力で、アイデアを形にします。
               </p>
-              <div className="flex justify-center md:justify-start gap-4">
-                <a
-                  href="#works"
+              <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                <Link
+                  href="/mypage"
                   className="px-6 py-2.5 rounded-full bg-[#e8a4b8] border border-[#e8a4b8] text-white font-medium text-sm hover:bg-[#d48fa3] hover:shadow-[0_10px_30px_rgba(232,164,184,0.4)] transition-all duration-300"
                 >
-                  Works を見る
+                  Mypage
+                </Link>
+                <a
+                  href="#about"
+                  className="px-6 py-2.5 rounded-full border border-[#eeeeee] text-[#666666] font-medium text-sm hover:border-[#e8a4b8] hover:text-[#e8a4b8] transition-colors"
+                >
+                  About
+                </a>
+                <a
+                  href="#works"
+                  className="px-6 py-2.5 rounded-full border border-[#eeeeee] text-[#666666] font-medium text-sm hover:border-[#e8a4b8] hover:text-[#e8a4b8] transition-colors"
+                >
+                  Works
+                </a>
+                <a
+                  href="#skills"
+                  className="px-6 py-2.5 rounded-full border border-[#eeeeee] text-[#666666] font-medium text-sm hover:border-[#e8a4b8] hover:text-[#e8a4b8] transition-colors"
+                >
+                  Skills
                 </a>
                 <a
                   href="#contact"
@@ -123,106 +155,20 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Career */}
-        <section id="career" className="py-20 px-6 md:px-10">
+        {/* Mypage Banner */}
+        <section className="py-12 px-6 md:px-10">
           <div className="max-w-[800px] mx-auto">
-            <SectionDivider />
-            <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-4">
-              Career
-            </h2>
-            <p className="text-[#666666] text-center text-sm mb-16">
-              保育士からSNS運用、そしてAI活用へ
-            </p>
-
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-[7px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px] bg-[#f0d4dd]" />
-
-              {/* Entry 1: 2020-2023 */}
-              <div className="relative flex flex-col md:flex-row md:items-center mb-16">
-                {/* Left side (desktop) */}
-                <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
-                    2020 - 2023
-                  </span>
-                  <h3 className="text-[#333333] font-bold text-lg mb-2">
-                    保育リーダー
-                  </h3>
-                  <p className="text-[#666666] text-sm leading-[1.8]">
-                    認可保育園にて保育リーダーとして勤務。
-                    <br />
-                    子どもたちの成長を支えながら、チームマネジメントや保護者対応を経験。
-                  </p>
-                </div>
-                {/* Dot */}
-                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
-                {/* Right side (desktop) / Full (mobile) */}
-                <div className="pl-8 md:hidden">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
-                    2020 - 2023
-                  </span>
-                  <h3 className="text-[#333333] font-bold text-lg mb-2">
-                    保育リーダー
-                  </h3>
-                  <p className="text-[#666666] text-sm leading-[1.8]">
-                    認可保育園にて保育リーダーとして勤務。
-                    <br />
-                    子どもたちの成長を支えながら、チームマネジメントや保護者対応を経験。
-                  </p>
-                </div>
-                <div className="hidden md:block md:w-1/2 md:pl-12" />
-              </div>
-
-              {/* Entry 2: 2023 */}
-              <div className="relative flex flex-col md:flex-row md:items-center mb-16">
-                <div className="hidden md:block md:w-1/2 md:pr-12" />
-                {/* Dot */}
-                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
-                {/* Right side (desktop) / Full (mobile) */}
-                <div className="pl-8 md:pl-12 md:w-1/2">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
-                    2023
-                  </span>
-                  <h3 className="text-[#333333] font-bold text-lg mb-2">
-                    個人事業主 /<br />SNS運用・クリエイティブ制作
-                  </h3>
-                  <p className="text-[#666666] text-sm leading-[1.8]">
-                    個人事業主として独立し、SNS運用やスクール運営講師など多岐に渡り経験を積む。
-                  </p>
-                </div>
-              </div>
-
-              {/* Entry 3: Present */}
-              <div className="relative flex flex-col md:flex-row md:items-center">
-                {/* Left side (desktop) */}
-                <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#e8a4b8] text-white text-xs font-semibold mb-3">
-                    現在
-                  </span>
-                  <h3 className="text-[#333333] font-bold text-lg mb-2">
-                    個人事業主 / AI活用
-                  </h3>
-                  <p className="text-[#666666] text-sm leading-[1.8]">
-                    AI開発について学び、スキルを習得。企業様に対して業務効率化やクリエイティブ提案などを行う。
-                  </p>
-                </div>
-                {/* Dot */}
-                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
-                {/* Mobile only */}
-                <div className="pl-8 md:hidden">
-                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#e8a4b8] text-white text-xs font-semibold mb-3">
-                    現在
-                  </span>
-                  <h3 className="text-[#333333] font-bold text-lg mb-2">
-                    個人事業主 / AI活用
-                  </h3>
-                  <p className="text-[#666666] text-sm leading-[1.8]">
-                    AI開発について学び、スキルを習得。企業様に対して業務効率化やクリエイティブ提案などを行う。
-                  </p>
-                </div>
-                <div className="hidden md:block md:w-1/2 md:pl-12" />
-              </div>
-            </div>
+            <Link
+              href="/mypage"
+              className="block p-6 md:p-8 rounded-2xl bg-[#fff0f3] border border-[#f5d5de] hover:shadow-[0_4px_20px_rgba(232,164,184,0.2)] hover:-translate-y-0.5 transition-all duration-300 text-center"
+            >
+              <p className="text-[#e8a4b8] text-sm font-semibold tracking-[0.05em] mb-2">
+                Mypage
+              </p>
+              <p className="text-[#333333] text-lg md:text-xl font-bold">
+                自己紹介はこちら
+              </p>
+            </Link>
           </div>
         </section>
 
