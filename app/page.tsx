@@ -143,7 +143,7 @@ export default function PortfolioPage() {
             <div className="shrink-0">
               <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-[#fff0f3] shadow-[0_10px_40px_rgba(232,164,184,0.2)]">
                 <Image
-                  src="/profile.jpg"
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.jpg`}
                   alt="プロフィール写真"
                   width={288}
                   height={288}
@@ -229,9 +229,12 @@ export default function PortfolioPage() {
 
             {worksGroups.map((group, i) => (
               <div key={i} className={i > 0 ? "mt-16" : ""}>
-                <h3 className="text-lg md:text-xl font-bold text-center text-[#333333] mb-8 leading-[1.8]">
+                <h3 className="text-lg md:text-xl font-bold text-center text-[#333333] mb-4 leading-[1.8]">
                   {group.subtitle}
                 </h3>
+                <p className="text-[#666666] text-center text-sm mb-8 max-w-2xl mx-auto leading-[1.8]">
+                  {group.description}
+                </p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {group.projects.map((project) => (
                     <ProjectCard key={project.id} project={project} />

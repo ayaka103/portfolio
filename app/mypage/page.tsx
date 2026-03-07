@@ -32,7 +32,7 @@ export default function MypagePage() {
           <div className="max-w-[800px] mx-auto flex flex-col items-center text-center">
             <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-[#fff0f3] shadow-[0_10px_40px_rgba(232,164,184,0.2)] mb-8">
               <Image
-                src="/profile.jpg"
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.jpg`}
                 alt="プロフィール写真"
                 width={208}
                 height={208}
@@ -152,8 +152,50 @@ export default function MypagePage() {
           </div>
         </section>
 
-        {/* AI Tools */}
+        {/* Strengths */}
         <section className="py-20 px-6 md:px-10">
+          <div className="max-w-[800px] mx-auto">
+            <SectionDivider />
+            <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-12">
+              強み
+            </h2>
+            <div className="space-y-8">
+              {[
+                {
+                  title: "圧倒的なスピード感",
+                  description:
+                    "AIの最大の武器であるスピードを活かし、期待を上回る速さで納品いたします。また、プロジェクトを停滞させないよう、迅速かつ密なコミュニケーションを徹底します。",
+                },
+                {
+                  title: "一歩先を行くプラスαの提案",
+                  description:
+                    "貴社の課題に合わせて「AIを使えばもっとこう良くなる」という改善案を積極的に提示します。貴社のビジネスを加速させるパートナーとして動きます。",
+                },
+                {
+                  title: "誠実に対話しながら遂行",
+                  description:
+                    "難しい技術用語は使わず、常に「何が解決するのか」を分かりやすくご説明し、納得感を持ってプロジェクトを進めていただくことをお約束します。",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="p-6 rounded-lg bg-[#fafafa] border border-[#eeeeee]"
+                >
+                  <h3 className="text-[#333333] font-bold text-lg mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#e8a4b8] shrink-0" />
+                    {item.title}
+                  </h3>
+                  <p className="text-[#666666] text-sm leading-[1.8] pl-4">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* AI Tools */}
+        <section className="py-20 px-6 md:px-10 bg-[#faf9f5]">
           <div className="max-w-[800px] mx-auto">
             <SectionDivider />
             <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-12">

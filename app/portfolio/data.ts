@@ -312,9 +312,10 @@ export const categoryCounts: Record<Category, number> = categories.reduce(
 
 const findProject = (id: string) => projects.find((p) => p.id === id)!;
 
-export const worksGroups: { subtitle: string; projects: Project[] }[] = [
+export const worksGroups: { subtitle: string; description: string; projects: Project[] }[] = [
   {
     subtitle: "データとAIで、SNSの成果を最大化できます",
+    description: "このほか、主要AIツールのインプレッション比較分析、YouTube動画の自動解析レポート、SNS向けインフォグラフィック・4コマ漫画コンテンツなどの制作実績があります。",
     projects: [
       findProject("gem-insta-planning"),
       findProject("ai-sns-analysis"),
@@ -323,6 +324,7 @@ export const worksGroups: { subtitle: string; projects: Project[] }[] = [
   },
   {
     subtitle: "デザインから文章まで、コンテンツ制作を一気通貫で支援できます",
+    description: "このほか、インフォグラフィック・イラスト制作、note記事執筆、子供向けAI絵本、SaaS企業のLP制作、ショート動画の台本・画像生成BOTなどの制作実績があります。",
     projects: [
       findProject("freelance-story"),
       findProject("wedding-venue-app"),
@@ -331,6 +333,7 @@ export const worksGroups: { subtitle: string; projects: Project[] }[] = [
   },
   {
     subtitle: "AIツール導入で、業務コストを大幅に削減できます",
+    description: "このほか、トレンドリサーチツール、フローチャート自動変換ツール、LINE風チャットボット、Notionを活用した売上管理ダッシュボード、キャリア分析・思考力トレーニングBOTなどの開発実績があります。",
     projects: [
       findProject("gem-job-posting"),
       findProject("text-generator"),
