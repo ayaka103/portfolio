@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { worksGroups, CONTACT } from "./portfolio/data";
 import ProjectCard from "./portfolio/components/ProjectCard";
 
@@ -13,7 +12,7 @@ function SectionDivider() {
 export default function PortfolioPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navItems = ["About", "Works", "Skills", "Contact"];
+  const navItems = ["About", "Career", "Works", "Skills", "Contact"];
 
   return (
     <div className="min-h-screen bg-white text-[#333333] font-[var(--font-noto-serif-jp)]">
@@ -33,12 +32,6 @@ export default function PortfolioPage() {
           </span>
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8 text-sm text-[#333333]">
-            <Link
-              href="/mypage"
-              className="hover:text-[#e8a4b8] transition-colors"
-            >
-              Mypage
-            </Link>
             {navItems.map((item) => (
               <a
                 key={item}
@@ -69,13 +62,6 @@ export default function PortfolioPage() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-[#f5f5f5] bg-white">
             <div className="max-w-[1200px] mx-auto px-6 py-4 flex flex-col gap-4">
-              <Link
-                href="/mypage"
-                className="text-sm text-[#333333] hover:text-[#e8a4b8] transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Mypage
-              </Link>
               {navItems.map((item) => (
                 <a
                   key={item}
@@ -108,15 +94,9 @@ export default function PortfolioPage() {
                 テクノロジーとクリエイティブの力で、アイデアを形にします。
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                <Link
-                  href="/mypage"
-                  className="px-6 py-2.5 rounded-full bg-[#e8a4b8] border border-[#e8a4b8] text-white font-medium text-sm hover:bg-[#d48fa3] hover:shadow-[0_10px_30px_rgba(232,164,184,0.4)] transition-all duration-300"
-                >
-                  Mypage
-                </Link>
                 <a
                   href="#about"
-                  className="px-6 py-2.5 rounded-full border border-[#eeeeee] text-[#666666] font-medium text-sm hover:border-[#e8a4b8] hover:text-[#e8a4b8] transition-colors"
+                  className="px-6 py-2.5 rounded-full bg-[#e8a4b8] border border-[#e8a4b8] text-white font-medium text-sm hover:bg-[#d48fa3] hover:shadow-[0_10px_30px_rgba(232,164,184,0.4)] transition-all duration-300"
                 >
                   About
                 </a>
@@ -155,63 +135,191 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Mypage Banner */}
-        <section className="py-12 px-6 md:px-10">
+        {/* About Me */}
+        <section id="about" className="py-20 px-6 md:px-10 bg-[#faf9f5]">
           <div className="max-w-[800px] mx-auto">
-            <Link
-              href="/mypage"
-              className="block p-6 md:p-8 rounded-2xl bg-[#fff0f3] border border-[#f5d5de] hover:shadow-[0_4px_20px_rgba(232,164,184,0.2)] hover:-translate-y-0.5 transition-all duration-300 text-center"
-            >
-              <p className="text-[#e8a4b8] text-sm font-semibold tracking-[0.05em] mb-2">
-                Mypage
-              </p>
-              <p className="text-[#333333] text-lg md:text-xl font-bold">
-                自己紹介はこちら
-              </p>
-            </Link>
+            <SectionDivider />
+            <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-12">
+              About Me
+            </h2>
+            <p className="text-[#333333] leading-[2] text-base mb-10">
+              はじめまして、前田純花です。現在、AI活用やSNS運用、スクール講師など個人事業主として活動しております。短期大学卒業後保育士として福岡市の認可保育園で3年間勤め、その後個人事業主として独立。これまでSNSのクリエイティブ作成や、AIでのアプリ開発やクリエイティブ作成など多岐にわたって活動しております。
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                "Claude",
+                "Claude Code",
+                "Gemini",
+                "Manus",
+                "NotebookLM",
+                "Antigravity",
+                "Cursor",
+              ].map((tool) => (
+                <span
+                  key={tool}
+                  className="px-5 py-2.5 text-sm font-semibold rounded-full bg-[#fff0f3] text-[#e8a4b8]"
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* About */}
-        <section id="about" className="py-20 px-6 md:px-10 bg-[#faf9f5]">
-          <div className="max-w-[1200px] mx-auto">
+        {/* Career */}
+        <section id="career" className="py-20 px-6 md:px-10">
+          <div className="max-w-[800px] mx-auto">
             <SectionDivider />
-            <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-16">
-              About
+            <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-4">
+              Career
             </h2>
-            <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <p className="text-[#333333] leading-[1.8] mb-6">
-                  フリーランスとして、AIを活用したプロダクト開発やコンテンツ制作を行っています。
-                  ChatGPT・Claude・Gemini・Manusなど複数のAIツールを駆使し、
-                  Webアプリケーション開発からデータ分析、SNSコンテンツまで幅広く対応。
-                </p>
-                <p className="text-[#333333] leading-[1.8]">
-                  「AIで業務を効率化したい」「AIを使って新しいプロダクトを作りたい」
-                  そんなニーズに、企画から実装まで一気通貫でお応えします。
-                </p>
+            <p className="text-[#666666] text-center text-sm mb-16">
+              保育士からSNS運用、そしてAI活用へ
+            </p>
+
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-[7px] md:left-1/2 md:-translate-x-px top-0 bottom-0 w-[2px] bg-[#f0d4dd]" />
+
+              {/* Entry 1: 2020-2023 */}
+              <div className="relative flex flex-col md:flex-row md:items-center mb-16">
+                <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
+                    2020 - 2023
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">保育リーダー</h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    認可保育園にて保育リーダーとして勤務。
+                    <br />
+                    子どもたちの成長を支えながら、チームマネジメントや保護者対応を経験。
+                  </p>
+                </div>
+                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
+                <div className="pl-8 md:hidden">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
+                    2020 - 2023
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">保育リーダー</h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    認可保育園にて保育リーダーとして勤務。
+                    <br />
+                    子どもたちの成長を支えながら、チームマネジメントや保護者対応を経験。
+                  </p>
+                </div>
+                <div className="hidden md:block md:w-1/2 md:pl-12" />
               </div>
-              <div>
-                <h3 className="text-[#333333] font-bold text-lg mb-4">使用AIツール</h3>
-                <div className="flex flex-wrap gap-3">
-                  {[
-                    "Claude",
-                    "Claude Code",
-                    "Gemini",
-                    "Manus",
-                    "NotebookLM",
-                    "Antigravity",
-                    "Cursor",
-                  ].map((tool) => (
-                    <span
-                      key={tool}
-                      className="px-5 py-2 text-sm font-semibold rounded-full bg-[#fff0f3] text-[#e8a4b8]"
-                    >
-                      {tool}
-                    </span>
-                  ))}
+
+              {/* Entry 2: 2023 */}
+              <div className="relative flex flex-col md:flex-row md:items-center mb-16">
+                <div className="hidden md:block md:w-1/2 md:pr-12" />
+                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
+                <div className="pl-8 md:pl-12 md:w-1/2">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#fff0f3] text-[#e8a4b8] text-xs font-semibold mb-3">
+                    2023
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">
+                    個人事業主 /<br />SNS運用・クリエイティブ制作
+                  </h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    個人事業主として独立し、SNS運用やスクール運営講師など多岐に渡り経験を積む。
+                  </p>
                 </div>
               </div>
+
+              {/* Entry 3: Present */}
+              <div className="relative flex flex-col md:flex-row md:items-center">
+                <div className="hidden md:block md:w-1/2 md:pr-12 md:text-right">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#e8a4b8] text-white text-xs font-semibold mb-3">
+                    現在
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">個人事業主 / AI活用</h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    AI開発について学び、スキルを習得。企業様に対して業務効率化やクリエイティブ提案などを行う。
+                  </p>
+                </div>
+                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-[#e8a4b8] border-[3px] border-white shadow-[0_0_0_2px_#f0d4dd] z-10" />
+                <div className="pl-8 md:hidden">
+                  <span className="inline-block px-4 py-1.5 rounded-full bg-[#e8a4b8] text-white text-xs font-semibold mb-3">
+                    現在
+                  </span>
+                  <h3 className="text-[#333333] font-bold text-lg mb-2">個人事業主 / AI活用</h3>
+                  <p className="text-[#666666] text-sm leading-[1.8]">
+                    AI開発について学び、スキルを習得。企業様に対して業務効率化やクリエイティブ提案などを行う。
+                  </p>
+                </div>
+                <div className="hidden md:block md:w-1/2 md:pl-12" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Strengths */}
+        <section className="py-20 px-6 md:px-10 bg-[#faf9f5]">
+          <div className="max-w-[800px] mx-auto">
+            <SectionDivider />
+            <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-12">
+              Strengths
+            </h2>
+            <div className="space-y-8">
+              {[
+                {
+                  title: "圧倒的なスピード感",
+                  description:
+                    "AIの最大の武器であるスピードを活かし、期待を上回る速さで納品いたします。また、プロジェクトを停滞させないよう、迅速かつ密なコミュニケーションを徹底します。",
+                },
+                {
+                  title: "一歩先を行くプラスαの提案",
+                  description:
+                    "貴社の課題に合わせて「AIを使えばもっとこう良くなる」という改善案を積極的に提示します。貴社のビジネスを加速させるパートナーとして動きます。",
+                },
+                {
+                  title: "誠実に対話しながら遂行",
+                  description:
+                    "難しい技術用語は使わず、常に「何が解決するのか」を分かりやすくご説明し、納得感を持ってプロジェクトを進めていただくことをお約束します。",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="p-6 rounded-lg bg-white border border-[#eeeeee]"
+                >
+                  <h3 className="text-[#333333] font-bold text-lg mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#e8a4b8] shrink-0" />
+                    {item.title}
+                  </h3>
+                  <p className="text-[#666666] text-sm leading-[1.8] pl-4">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Hobbies */}
+        <section className="py-20 px-6 md:px-10">
+          <div className="max-w-[800px] mx-auto">
+            <SectionDivider />
+            <h2 className="text-2xl font-bold text-center tracking-[0.05em] mb-12">
+              Hobbies
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { emoji: "\u26BE", title: "野球観戦", description: "ソフトバンクホークスファン歴6年" },
+                { emoji: "\u{1F4DA}", title: "読書", description: "ビジネス書や自己啓発本をよく読みます" },
+                { emoji: "\u{1F680}", title: "新しいツールを試す", description: "最新のAIツールをいち早く触ってみます" },
+                { emoji: "\u{1F373}", title: "料理", description: "毎日Instagramを見て自炊しています" },
+                { emoji: "\u{1F3D5}\uFE0F", title: "アクティビティ", description: "釣りや渡島、キャンプなどが好きです" },
+                { emoji: "\u{1F4DD}", title: "ジャーナリング", description: "日々の思考や気づきを書き留めています" },
+              ].map((hobby) => (
+                <div
+                  key={hobby.title}
+                  className="p-6 rounded-lg bg-[#fafafa] border border-[#eeeeee] hover:-translate-y-1 hover:shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition-all duration-300 text-center"
+                >
+                  <span className="text-3xl mb-3 block">{hobby.emoji}</span>
+                  <h3 className="text-[#333333] font-bold text-base mb-2">{hobby.title}</h3>
+                  <p className="text-[#666666] text-sm leading-[1.6]">{hobby.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -297,7 +405,7 @@ export default function PortfolioPage() {
         </section>
 
         {/* Contact */}
-        <section id="contact" className="py-20 px-6 md:px-10 bg-[#faf9f5]">
+        <section id="contact" className="py-20 px-6 md:px-10">
           <div className="max-w-[1200px] mx-auto text-center">
             <SectionDivider />
             <h2 className="text-2xl font-bold tracking-[0.05em] mb-4">
