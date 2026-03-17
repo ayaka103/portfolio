@@ -32,7 +32,7 @@ export default function MypagePage() {
           <div className="max-w-[800px] mx-auto flex flex-col items-center text-center">
             <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-[#fff0f3] shadow-[0_10px_40px_rgba(232,164,184,0.2)] mb-8">
               <Image
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.jpg`}
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.png`}
                 alt="プロフィール写真"
                 width={208}
                 height={208}

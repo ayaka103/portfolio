@@ -123,7 +123,7 @@ export default function PortfolioPage() {
             <div className="shrink-0">
               <div className="w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-[#fff0f3] shadow-[0_10px_40px_rgba(232,164,184,0.2)]">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.jpg`}
+                  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/profile.png`}
                   alt="プロフィール写真"
                   width={288}
                   height={288}
